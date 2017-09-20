@@ -1,7 +1,7 @@
 {
-  "name": "authy-demo",
+  "name": "account-security-quickstart-node",
   "version": "1.0.0",
-  "description": "Simple demo showing how Authy works.",
+  "description": "Simple demo showing how Twilio Account Security works.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,16 +14,22 @@
     "Authy",
     "Twilio",
     "2FA",
-    "NodeJS"
+    "NodeJS",
+    "Push",
+    "SMS",
+    "Voice",
+    "TOTP",
+    "Soft Token"
   ],
   "author": "Josh Staples",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "authy-client": "^1.0.10",
     "body-parser": "^1.15.2",
     "connect-mongo": "^1.3.2",
     "cookie-parser": "^1.4.3",
     "crypto": "0.0.3",
+    "dotenv-safe": "^4.0.4",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "mongodb": "^2.2.11",
