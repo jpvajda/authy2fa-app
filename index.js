@@ -14,7 +14,7 @@ var app = express();
 var server = require('http').Server(app);
 
 if(!config.API_KEY){
-    console.log("Please set your DEMO_ACCOUNT_SECURITY_API_KEY environment variable before proceeding.");
+    console.log("Please set your ACCOUNT_SECURITY_API_KEY environment variable before proceeding.");
     process.exit(1);
 }
 
@@ -22,11 +22,19 @@ if(!config.API_KEY){
 /**
  * Setup MongoDB connection.
  */
-mongoose.connect('mongodb://localhost:27017/authydemo');
+mongoose.connect('mongodb://localhost:27017/accountsecuritydemo');
 var db = mongoose.connection;
 
 app.use(cookieParser());
-app.use(expressSession({'secret': config.SECRET}));
+app.use(
+    expressSession(
+        {
+            'secret': config.SECRET,
+            resave: true,
+            saveUninitialized: true
+        }
+    )
+);
 
 app.use(bodyParser.json({}));
 app.use(bodyParser.urlencoded({
@@ -47,7 +55,9 @@ db.once('open', function (err) {
         store: new mongoStore({
             db: mongoose.connection.db,
             collection: 'sessions'
-        })
+        }),
+        resave: true,
+        saveUninitialized: true
     }));
     var port = config.PORT || 5151;
     server.listen(port);
@@ -66,18 +76,18 @@ router.route('/logout').get(users.logout);
 router.route('/login').post(users.login);
 
 /**
- * Authy Authentication API
+ * Account Security Authentication API
  */
-router.route('/authy/sms').post(users.sms);
-router.route('/authy/voice').post(users.voice);
-router.route('/authy/verify').post(users.verify);
-router.route('/authy/onetouchstatus').post(users.checkonetouchstatus);
-router.route('/authy/onetouch').post(users.createonetouch);
+router.route('/accountsecurity/sms').post(users.sms);
+router.route('/accountsecurity/voice').post(users.voice);
+router.route('/accountsecurity/verify').post(users.verify);
+router.route('/accountsecurity/onetouchstatus').post(users.checkonetouchstatus);
+router.route('/accountsecurity/onetouch').post(users.createonetouch);
 
 router.route('/loggedIn').post(users.loggedIn);
 
 /**
- * Authy Phone Verification API
+ * Account Security Phone Verification API
  */
 router.route('/verification/start').post(users.requestPhoneVerification);
 router.route('/verification/verify').post(users.verifyPhoneToken);
@@ -137,7 +147,7 @@ function requireLogin(req, res, next) {
 }
 
 /**
- * Test for 200 response.  Useful when setting up Authy callback.
+ * Test for 200 response.  Useful when setting up Twilio callback.
  */
 router.route('/test').post(function(req, res){
     return res.status(200).send({"connected": true});
