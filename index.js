@@ -1,3 +1,4 @@
+require('dotenv').load();
 require('./server/model/user_model.js');
 
 var express = require('express');
@@ -13,7 +14,7 @@ var app = express();
 var server = require('http').Server(app);
 
 if(!config.API_KEY){
-    console.log("Please set your DEMO_AUTHY_API_KEY environment variable before proceeding.");
+    console.log("Please set your DEMO_ACCOUNT_SECURITY_API_KEY environment variable before proceeding.");
     process.exit(1);
 }
 
