@@ -1,4 +1,4 @@
-![Authy](https://raw.githubusercontent.com/AuthySE/Authy-demo/master/authy-logo.png)
+![Twilio Logo](./twilio_logo_red.png)
 
 # Twilio Account Security Quickstart - Two-Factor Authentication and Phone Verification
 
@@ -22,9 +22,9 @@ This app uses [MongoDB](https://www.mongodb.com/) as a data store. You will have
 - Clone this repo
 - Run `npm install`
 - Register for a [Twilio Account](https://www.twilio.com/).
-- Setup an Authy app via the [Twilio Console](https://twilio.com/console).
-- Grab an Authy API key from the Authy dashboard and save it in your demo.env
-- Edit and load the demo.env environmental variables into your shell `source demo.env`
+- Setup an Account Security app via the [Twilio Console](https://twilio.com/console).
+- Grab an Application API key from the Dashboard and paste it in `.env.example`
+- Save the `.env.example` file as `.env`
 - Check and make sure MongoDB is up and running
 - Run `nodemon .` or `node .` from the cloned repo to run the app
 

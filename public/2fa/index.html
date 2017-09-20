@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>2FA - Super Simple Authy Demo</title>
+    <title>Twilio Two-Factor Authentication Quickstart</title>
     <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -30,14 +30,14 @@
         }
     </style>
 </head>
-<body ng-app="authyDemo">
+<body ng-app="accountSecurityQuickstart">
 
 <div class="container twofa" ng-controller="AuthyController">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-1 col-md-offset-3">
             <div class="panel panel-default" style="width: 150%">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Authy Token Verification</h3>
+                    <h3 class="panel-title">Token Verification</h3>
                 </div>
                 <div class="panel-body">
                     <form role="form">
@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                     <input type="text" name="token" id="token" class="form-control input-sm"
                                            ng-model="setup.token"
-                                           placeholder="Token via SMS, Voice or the Authy SoftToken">
+                                           placeholder="Token via SMS, Voice or SoftToken">
                                 </div>
                             </div>
                         </div>

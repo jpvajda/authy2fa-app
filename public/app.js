@@ -1,4 +1,4 @@
-var app = angular.module('authyDemo', []);
+var app = angular.module('accountSecurityQuickstart', []);
 
 app.controller('LoginController', function ($scope, $http, $window) {
 
@@ -65,7 +65,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Request a token via SMS
      */
     $scope.sms = function () {
-        $http.post('/api/authy/sms')
+        $http.post('/api/accountsecurity/sms')
             .success(function (data, status, headers, config) {
                 console.log("SMS sent: ", data);
             })
@@ -79,7 +79,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Request a Voice delivered token
      */
     $scope.voice = function () {
-        $http.post('/api/authy/voice')
+        $http.post('/api/accountsecurity/voice')
             .success(function (data, status, headers, config) {
                 console.log("Phone call initialized: ", data);
             })
@@ -93,7 +93,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Verify a SMS, Voice or SoftToken
      */
     $scope.verify = function () {
-        $http.post('/api/authy/verify', {token: $scope.setup.token})
+        $http.post('/api/accountsecurity/verify', {token: $scope.setup.token})
             .success(function (data, status, headers, config) {
                 console.log("2FA success ", data);
                 $window.location.href = $window.location.origin + "/protected";
@@ -108,7 +108,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Request a OneTouch transaction
      */
     $scope.onetouch = function () {
-        $http.post('/api/authy/onetouch')
+        $http.post('/api/accountsecurity/onetouch')
             .success(function (data, status, headers, config) {
                 console.log("OneTouch success", data);
                 /**
@@ -126,7 +126,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Request the OneTouch status.
      */
     function oneTouchStatus() {
-        $http.post('/api/authy/onetouchstatus')
+        $http.post('/api/accountsecurity/onetouchstatus')
             .success(function (data, status, headers, config) {
                 console.log("OneTouch Status: ", data);
                 if (data.body.approval_request.status === "approved") {
