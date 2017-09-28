@@ -107,7 +107,7 @@ exports.register = function (req, res) {
                     phone: req.body.phone_number
                 }, function (err, regRes) {
                     if (err) {
-                        console.log('Error Registering User with Authy');
+                        console.log('Error Registering User with Account Security');
                         res.status(500).json(err);
                         return;
                     }
@@ -274,19 +274,19 @@ exports.createonetouch = function (req, res) {
                     "Authy ID": user.authyId,
                     "Username": user.username,
                     "Location": 'San Francisco, CA',
-                    "Reason": 'Demo by Authy'
+                    "Reason": 'Demo by Account Security'
                 }
             },
-            message: 'Login requested for an Authy Demo account.'
+            message: 'Login requested for Account Security account.'
         };
 
         authy.createApprovalRequest(request, {ttl: 120}, function (oneTouchErr, oneTouchRes) {
             if (oneTouchErr) {
-                console.error("Create OneTouch Error: ", oneTouchErr);
+                console.error("Create Push Error: ", oneTouchErr);
                 res.status(500).json(oneTouchErr);
                 return;
             }
-            console.log("OneTouch Response: ", oneTouchRes);
+            console.log("Push Notification Response: ", oneTouchRes);
             req.session.uuid = oneTouchRes.approval_request.uuid;
             res.status(200).json(oneTouchRes)
         });
