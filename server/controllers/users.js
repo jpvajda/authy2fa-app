@@ -149,7 +149,7 @@ exports.loggedIn = function (req, res) {
 };
 
 /**
- * Request a OneCode via SMS
+ * Request a Time-based One Time Password (TOTP) via SMS
  *
  * @param req
  * @param res
@@ -184,7 +184,7 @@ exports.sms = function (req, res) {
 };
 
 /**
- * Request a OneCode via a voice call
+ * Request a Time-based One Time Password (TOTP) via a voice call
  *
  * @param req
  * @param res
@@ -247,7 +247,7 @@ exports.verify = function (req, res) {
 };
 
 /**
- * Create a OneTouch request.
+ * Create a Push Notification request.
  * The front-end client will poll 12 times at a frequency of 5 seconds before terminating.
  * If the status is changed to approved, it quit polling and process the user.
  *
@@ -295,7 +295,7 @@ exports.createonetouch = function (req, res) {
 };
 
 /**
- * Verify the OneTouch request callback via HMAC inspection.
+ * Verify the Push Notification request callback via HMAC inspection.
  *
  * @url https://en.wikipedia.org/wiki/Hash-based_message_authentication_code
  * @url https://gist.github.com/josh-authy/72952c62521480f3dd710dcbad0d8c42
