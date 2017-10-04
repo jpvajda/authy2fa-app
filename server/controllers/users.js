@@ -192,9 +192,9 @@ exports.sms = function (req, res) {
 exports.voice = function (req, res) {
     var username = req.session.username;
     User.findOne({username: username}).exec(function (err, user) {
-        console.log("Send SMS");
+        console.log("Send Voice");
         if (err) {
-            console.log('ERROR SendSMS', err);
+            console.log('ERROR SendVoice', err);
             res.status(500).json(err);
             return;
         }
