@@ -260,7 +260,7 @@ exports.createonetouch = function (req, res) {
     console.log("username: ", username);
     User.findOne({username: username}).exec(function (err, user) {
         if (err) {
-            console.error("Create OneTouch User Error: ", err);
+            console.error("Create Push User Error: ", err);
             res.status(500).json(err);
         }
 
