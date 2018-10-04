@@ -24,6 +24,7 @@ This app uses [MongoDB](https://www.mongodb.com/) as a data store. You will have
 - Setup an Account Security app via the [Twilio Console](https://twilio.com/console).
 - Grab an Authy API key from the Dashboard and paste it in `.env.example`
 - Save the `.env.example` file as `.env`
+- `source .env` to add the environmental variables
 - Check and make sure MongoDB is up and running
     - On *NIX, may be as easy as running `mongod` in a new tab.
 - Run `nodemon .` or `node .` from the cloned repo to run the app
