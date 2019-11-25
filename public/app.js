@@ -93,7 +93,7 @@ app.controller('AuthyController', function ($scope, $http, $window, $interval) {
      * Verify a SMS, Voice or SoftToken
      */
     $scope.verify = function () {
-        $http.post('/api/accountsecurity/verify', {token: $scope.setup.token})
+        $http.post('/api/accountsecurity/verify', { token: $scope.setup.token })
             .success(function (data, status, headers, config) {
                 console.log("2FA success ", data);
                 $window.location.href = $window.location.origin + "/protected";
@@ -149,7 +149,7 @@ app.controller('PhoneVerificationController', function ($scope, $http, $window, 
     $scope.setup = {
         via: "sms"
     };
-    
+
     $scope.view = {
         start: true
     };
@@ -184,7 +184,35 @@ app.controller('PhoneVerificationController', function ($scope, $http, $window, 
     };
 
     $scope.logout = function () {
-            $window.location.href = $window.location.origin;
+        $window.location.href = $window.location.origin;
     };
+
+
+    // Mongo DB Configuration 
+
+    const MongoClient = require('mongodb').MongoClient;
+    const assert = require('assert');
+
+    // Connection URL
+    const url = 'mongodb://localhost:27017';
+
+    // Database Name
+    const dbName = 'authy2fa-app';
+
+    // Create a new MongoClient
+    const client = new MongoClient(url);
+
+    // Use connect method to connect to the Server
+    client.connect(function (err) {
+        assert.equal(null, err);
+        console.log("Connected successfully to server");
+
+        const db = client.db(dbName);
+
+        client.close();
+    });
+
+
+
 });
 
