@@ -187,9 +187,14 @@ app.controller('PhoneVerificationController', function ($scope, $http, $window, 
         $window.location.href = $window.location.origin;
     };
 
+    // Require.js 
+
+    var requirejs = require('requirejs');
+
 
     // Mongo DB Configuration 
 
+ 
     const MongoClient = require('mongodb').MongoClient;
     const assert = require('assert');
 

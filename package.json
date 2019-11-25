@@ -36,6 +36,7 @@
     "mongoose": "^4.6.5",
     "nodemon": "^1.11.0",
     "qs": "^6.3.0",
-    "request": "^2.76.0"
+    "request": "^2.76.0",
+    "requirejs": "^2.3.6"
   }
 }
