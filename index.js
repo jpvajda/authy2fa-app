@@ -1,5 +1,5 @@
 require('dotenv').load();
-require('./server/model/user_model.js');
+require('./server/model/user_model.js.js');
 
 var express = require('express');
 var cookieParser = require('cookie-parser');
@@ -8,7 +8,7 @@ var expressSession = require('express-session');
 var mongoStore = require('connect-mongo')({session: expressSession});
 var mongoose = require('mongoose');
 
-var config = require('./server/config.js');
+var config = require('./server/config.js.js');
 
 var app = express();
 var server = require('http').Server(app);
@@ -68,7 +68,7 @@ db.on('error', console.error.bind(console, 'Connection Error:'));
 
 var router = express.Router();
 
-var users = require('./server/controllers/users.js');
+var users = require('./server/controllers/users.js.js');
 
 router.route('/user/register').post(users.register);
 
