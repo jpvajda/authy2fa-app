@@ -34,7 +34,7 @@
     "express-session": "^1.14.1",
     "minimist": "^1.2.5",
     "mongodb": "^2.2.36",
-    "mongoose": "^4.6.5",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.11.0",
     "qs": "^6.3.0",
     "request": "^2.76.0",
